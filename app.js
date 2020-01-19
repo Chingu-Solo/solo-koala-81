@@ -4,12 +4,13 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-
+// Load in the Google Fonts
 request.onload = function () {
     const fontJSON = request.response;
     let font_families = [];
     let css = "";
     const fonts = fontJSON.items;
+    //add fonts to font list array
     for (i = 0; i < fonts.length; i++) {
         var font_family = {
             "family": fonts[i].family,
@@ -19,10 +20,7 @@ request.onload = function () {
         font_families.push(font_family);
         //console.log(font_family);
     }
-    for (var j = 0; j < font_families.length; j++) {
-        //console.log("This is a loop");
-    }
-
+    //create styles in index.html
     for (j = 0; j < font_families.length; j++) {
         let single_font = font_families[j];
         for (var k = 0; k, k < single_font.variants.length; k++) {
@@ -78,11 +76,29 @@ request.onload = function () {
             font_face_css += "; src: url(";
             font_face_css += single_font.files[single_font.variants[k]];
             font_face_css += ");} "
-            console.log(font_face_css);
+            //(font_face_css);
             css += font_face_css;
         }
             }
             $('<style>').append(css).appendTo(document.head);    
+ //Append Font Cards to Body HTML with styling
+            for (x = 0; x < font_families.length; x++) {
+                let font_card = '<div class="row mx-auto border-bottom" title="'
+                font_card += font_families[x].family;
+                font_card += '"><div class="card w-100 border-0"><div class="card-body"><h5 class="card-title">';
+                font_card += font_families[x].family;
+                font_card += '</h5>';
+                font_card += '<p class="card-text" style="font-family: '
+                font_card += font_families[x].family;
+                font_card += '"'
+                font_card += '>Some quick example text to build on the card title and make up the bulk of the card content.</p></div></div></div>';
+
+                $('.font-card-container').append(font_card);
+            }      
+                  
+            $('#search').hideseek({
+                attribute: 'title'
+            });       
         }
 
 
