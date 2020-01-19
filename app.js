@@ -1,8 +1,25 @@
 let requestURL = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDwTcS4Tdzrk_sNAn21EiBmiWGitIbZLkI';
+let value = "Default text to be displayed";
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
 // Load in the Google Fonts
 request.onload = function () {
@@ -81,8 +98,8 @@ request.onload = function () {
         }
             }
             $('<style>').append(css).appendTo(document.head);    
- //Append Font Cards to Body HTML with styling
-            for (x = 0; x < font_families.length; x++) {
+    //Append Font Cards to Body HTML with styling
+            for (x = 0; x < 11; x++) {
                 let font_card = '<div class="row mx-auto border-bottom" title="'
                 font_card += font_families[x].family;
                 font_card += '"><div class="card w-100 border-0"><div class="card-body"><h5 class="card-title">';
@@ -98,7 +115,37 @@ request.onload = function () {
                   
             $('#search').hideseek({
                 attribute: 'title'
-            });       
+            });   
+    //Change Card text to what the user types
+    console.log(value);
+    $( "#type_something" ).keyup(function() {
+    value = $( this ).val();
+    $( ".card-text" ).text( value );
+    }).keypress();
+    //Clear text input 
+    // $( "#clear" ).click(function() {
+    //     value = " ";
+    //     console.log(value);
+    //     $( ".card-text" ).text( value );
+    //     $( "#type_something" ).val( 'type something');
+    //   });
+
+    // Change the font when input changes
+    $( "#font-size" ).change(function() {
+        var font_size = $(this).val();
+        font_size += "px";
+        //console.log(font_size);
+        var x = 'font-size'; 
+        $("p").css(x, font_size);
+    })
+
+    //Back to top button
+
+    //Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+
         }
 
 
