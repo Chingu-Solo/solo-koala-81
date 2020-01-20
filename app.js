@@ -1,5 +1,6 @@
 let requestURL = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDwTcS4Tdzrk_sNAn21EiBmiWGitIbZLkI&sort=popularity';
-let value = "Default text to be displayed";
+//let value = "Default text to be displayed";
+let button = "list";
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -20,6 +21,20 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+//Change to list/grid view on button click
+
+$('#list-button').click(function(){
+    if (button == "list"){
+    $('#card-list').removeClass( "row-cols-lg-3" );
+    $('#list-button').html('<i class="fas fa-border-all"></i>')
+    button = "grid";
+    } else if (button = "grid") {
+        $('#card-list').addClass( "row-cols-lg-3" );  
+        $('#list-button').html('<i class="fas fa-list"></i>')
+        button = "list";
+    }
+})
 
 // Load in the Google Fonts
 request.onload = function () {
