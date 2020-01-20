@@ -6,47 +6,94 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-window.onscroll = function() {scrollFunction()};
+//Back to top button
+//Get the button:
+mybutton = document.getElementById("myBtn");
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 //Change to list/grid view on button click
 
-$('#list-button').click(function(){
-    if (button == "list"){
-    $('#card-list').removeClass( "row-cols-lg-3" );
-    $('#list-button').html('<i class="fas fa-border-all"></i>')
-    button = "grid";
+$('#list-button').click(function () {
+    if (button == "list") {
+        $('#card-list').removeClass("row-cols-lg-3");
+        $('#list-button').html('<i class="fas fa-border-all"></i>')
+        button = "grid";
     } else if (button = "grid") {
-        $('#card-list').addClass( "row-cols-lg-3" );  
+        $('#card-list').addClass("row-cols-lg-3");
         $('#list-button').html('<i class="fas fa-list"></i>')
         button = "list";
     }
 })
 
 //Change to light or dark mode 
-$('#dark-mode').click(function(){
+$('#dark-mode').click(function () {
     $('body').addClass('dark-mode');
     $('.card').addClass('dark-mode');
 });
 
-$('#light-mode').click(function(){
+$('#light-mode').click(function () {
     $('body').removeClass('dark-mode');
     $('.card').removeClass('dark-mode');
 });
 
+//Change Card text to what the user types
+//console.log(value);
+$("#type_something").keyup(function () {
+    value = $(this).val();
+    if (value != "") {
+        $(".card-text").text(value);
+    } else {
+        $(".card-text").text('The quick brown fox jumps over the lazy dog.'
+        )
+    }
+}).keypress();
+
+// Change the font when input changes
+$("#font-size").change(function () {
+    var font_size = $(this).val();
+    //console.log(font_size);
+    var x = 'font-size';
+    $("p").css(x, font_size);
+})
+
+//Implement search function for fonts    
+$('#search').hideseek({
+    attribute: 'title'
+});
+
+//Reset all values to base values when reset button clicked
+$('#reset-button').click(function(){
+    //set font input to nothing
+    $('#search').val("");
+    //Set font size in paragraphs to 40px
+    $("p").css("font-size", "40px");
+    $("#font-size").val("40px");
+    //Remove dark mode class
+    $('body').removeClass('dark-mode');
+    $('.card').removeClass('dark-mode');
+    //Reset "Type Something" Text
+    $(".card-text").text('The quick brown fox jumps over the lazy dog.');
+    $("#type_something").val("");
+    //Change to grid if not already grid on large screens
+    if (button == "grid") {
+        button = "list";
+        $('#card-list').addClass("row-cols-lg-3");
+        $('#list-button').html('<i class="fas fa-list"></i>')
+    }
+})
 // Load in the Google Fonts
 request.onload = function () {
     const fontJSON = request.response;
@@ -100,16 +147,16 @@ request.onload = function () {
                         break;
                     default:
                         weight = "500";
-                    }
-                } else if (single_font.variants[k] == "italic") {
-                    font_style = "italic";
-                } else if (single_font.variants[k] != null) {
-                        var split = [];
-                        split = single_font.variants[k].split("00");
-                        font_style = split[1];
-                        weight = split[0] + "00";
-                    }
-                
+                }
+            } else if (single_font.variants[k] == "italic") {
+                font_style = "italic";
+            } else if (single_font.variants[k] != null) {
+                var split = [];
+                split = single_font.variants[k].split("00");
+                font_style = split[1];
+                weight = split[0] + "00";
+            }
+
             font_face_css = "@font-face { font-family: ";
             font_face_css += single_font.family;
             font_face_css += "; font-weight: ";
@@ -122,61 +169,24 @@ request.onload = function () {
             //(font_face_css);
             css += font_face_css;
         }
-            }
-            $('<style>').append(css).appendTo(document.head);    
+    }
+    $('<style>').append(css).appendTo(document.head);
     //Append Font Cards to Body HTML with styling
-            for (x = 0; x < 11; x++) {
-                let font_card = '<div class="card border-0" title="'
-                font_card += font_families[x].family;
-                font_card += '"><div class="card-body border-top"><h5 class="card-title">';
-                font_card += font_families[x].family;
-                font_card += '</h5> <i class="fas fa-plus"></i>';
-                font_card += '<p class="card-text" style="font-family: '
-                font_card += font_families[x].family;
-                font_card += '"'
-                font_card += '>The quick brown fox jumps over the lazy dog.</p></div></div>';
+    for (x = 0; x < 11; x++) {
+        let font_card = '<div class="card border-0" title="'
+        font_card += font_families[x].family;
+        font_card += '"><div class="card-body border-top"><h5 class="card-title">';
+        font_card += font_families[x].family;
+        font_card += '</h5> <i class="fas fa-plus"></i>';
+        font_card += '<p class="card-text" style="font-family: '
+        font_card += font_families[x].family;
+        font_card += '"'
+        font_card += '>The quick brown fox jumps over the lazy dog.</p></div></div>';
 
-                $('.font-card-container').append(font_card);
-            }      
-                  
-            $('#search').hideseek({
-                attribute: 'title'
-            });   
-    //Change Card text to what the user types
-        //console.log(value);
-    $( "#type_something" ).keyup(function() {
-    value = $( this ).val();
-    if (value != "") {
-        $( ".card-text" ).text( value );
-    } else {
-        $( ".card-text" ).text('The quick brown fox jumps over the lazy dog.'
-            )    }
-    }).keypress();
-    
-    //Clear text input 
-    // $( "#clear" ).click(function() {
-    //     value = " ";
-    //     console.log(value);
-    //     $( ".card-text" ).text( value );
-    //     $( "#type_something" ).val( 'type something');
-    //   });
+        $('.font-card-container').append(font_card);
+    }
 
-    // Change the font when input changes
-    $( "#font-size" ).change(function() {
-        var font_size = $(this).val();
-        //console.log(font_size);
-        var x = 'font-size'; 
-        $("p").css(x, font_size);
-    })
-
-    //Back to top button
-
-    //Get the button:
-mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-
-        }
+}
 
 
 
