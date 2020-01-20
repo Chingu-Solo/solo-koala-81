@@ -1,4 +1,4 @@
-let requestURL = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDwTcS4Tdzrk_sNAn21EiBmiWGitIbZLkI';
+let requestURL = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDwTcS4Tdzrk_sNAn21EiBmiWGitIbZLkI&sort=popularity';
 let value = "Default text to be displayed";
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
@@ -100,15 +100,15 @@ request.onload = function () {
             $('<style>').append(css).appendTo(document.head);    
     //Append Font Cards to Body HTML with styling
             for (x = 0; x < 11; x++) {
-                let font_card = '<div class="row mx-auto border-bottom" title="'
+                let font_card = '<div class="card border-0" title="'
                 font_card += font_families[x].family;
-                font_card += '"><div class="card w-100 border-0"><div class="card-body"><h5 class="card-title">';
+                font_card += '"><div class="card-body border-top"><h5 class="card-title">';
                 font_card += font_families[x].family;
                 font_card += '</h5>';
                 font_card += '<p class="card-text" style="font-family: '
                 font_card += font_families[x].family;
                 font_card += '"'
-                font_card += '>Some quick example text to build on the card title and make up the bulk of the card content.</p></div></div></div>';
+                font_card += '>The quick brown fox jumps over the lazy dog.</p></div></div>';
 
                 $('.font-card-container').append(font_card);
             }      
@@ -117,11 +117,16 @@ request.onload = function () {
                 attribute: 'title'
             });   
     //Change Card text to what the user types
-    console.log(value);
+        //console.log(value);
     $( "#type_something" ).keyup(function() {
     value = $( this ).val();
-    $( ".card-text" ).text( value );
+    if (value != "") {
+        $( ".card-text" ).text( value );
+    } else {
+        $( ".card-text" ).text('The quick brown fox jumps over the lazy dog.'
+            )    }
     }).keypress();
+    
     //Clear text input 
     // $( "#clear" ).click(function() {
     //     value = " ";
@@ -133,7 +138,6 @@ request.onload = function () {
     // Change the font when input changes
     $( "#font-size" ).change(function() {
         var font_size = $(this).val();
-        font_size += "px";
         //console.log(font_size);
         var x = 'font-size'; 
         $("p").css(x, font_size);
