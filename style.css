@@ -40,6 +40,10 @@
     font-size: 40px;
 }
 
+.fa-plus {
+    float: right;
+}
+
 /* Back to Top Button */
 
 #myBtn {
