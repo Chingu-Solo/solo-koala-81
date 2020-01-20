@@ -42,11 +42,23 @@ $('#list-button').click(function () {
 $('#dark-mode').click(function () {
     $('body').addClass('dark-mode');
     $('.card').addClass('dark-mode');
+    $('input').addClass('dark-mode');
+    $('select').addClass('dark-mode');
+    // $('#dark-mode').addClass('dark-mode');
+    // $('#light-mode').addClass('dark-mode');
+    $('#list-button').addClass('dark-mode');
+    $('#reset-button').addClass('dark-mode');
 });
 
 $('#light-mode').click(function () {
     $('body').removeClass('dark-mode');
     $('.card').removeClass('dark-mode');
+    $('input').removeClass('dark-mode');
+    $('select').removeClass('dark-mode');
+    // $('#dark-mode').removeClass('dark-mode');
+    // $('#light-mode').removeClass('dark-mode');
+    $('#list-button').removeClass('dark-mode');
+    $('#reset-button').removeClass('dark-mode');
 });
 
 //Change Card text to what the user types
@@ -175,7 +187,7 @@ request.onload = function () {
     }
     $('<style>').append(css).appendTo(document.head);
     //Append Font Cards to Body HTML with styling
-    for (x = 0; x < 11; x++) {
+    for (x = 0; x < font_families.length; x++) {
         let font_card = '<div class="card border-0 p-2" title="'
         font_card += font_families[x].family;
         font_card += '"><div class="card-body border-top border-dark"><h5 class="card-title">';
