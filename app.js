@@ -36,6 +36,17 @@ $('#list-button').click(function(){
     }
 })
 
+//Change to light or dark mode 
+$('#dark-mode').click(function(){
+    $('body').addClass('dark-mode');
+    $('.card').addClass('dark-mode');
+});
+
+$('#light-mode').click(function(){
+    $('body').removeClass('dark-mode');
+    $('.card').removeClass('dark-mode');
+});
+
 // Load in the Google Fonts
 request.onload = function () {
     const fontJSON = request.response;
