@@ -177,7 +177,9 @@ request.onload = function () {
         font_card += font_families[x].family;
         font_card += '"><div class="card-body border-top"><h5 class="card-title">';
         font_card += font_families[x].family;
-        font_card += '</h5> <i class="fas fa-plus"></i>';
+        font_card += '</h5><button class="add-font-button" id="add-';
+        font_card += font_families[x].family;
+        font_card += '"><i class="fas fa-plus"></i></button>';
         font_card += '<p class="card-text" style="font-family: '
         font_card += font_families[x].family;
         font_card += '"'
