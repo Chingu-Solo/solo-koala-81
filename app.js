@@ -96,6 +96,10 @@ $('#reset-button').click(function(){
     //Remove dark mode class
     $('body').removeClass('dark-mode');
     $('.card').removeClass('dark-mode');
+    $('#list-button').removeClass('dark-mode');
+    $('#reset-button').removeClass('dark-mode');
+    $('input').addClass('dark-mode');
+    $('select').addClass('dark-mode');
     //Reset "Type Something" Text
     $(".card-text").text('The quick brown fox jumps over the lazy dog.');
     $("#type_something").val("");
