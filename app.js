@@ -8,7 +8,7 @@ request.send();
 
 //Back to top button
 //Get the button:
-mybutton = document.getElementById("myBtn");
+mybutton = document.getElementById("top-button");
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
