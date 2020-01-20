@@ -175,17 +175,16 @@ request.onload = function () {
                 font_style = split[1];
                 weight = split[0] + "00";
             }
-
+            let font_url_split = single_font.files[single_font.variants[k]].split("http");
             font_face_css = "@font-face { font-family: ";
             font_face_css += single_font.family;
             font_face_css += "; font-weight: ";
             font_face_css += weight;
             font_face_css += "; font-style: ";
             font_face_css += font_style;
-            font_face_css += "; src: url(";
-            font_face_css += single_font.files[single_font.variants[k]];
+            font_face_css += "; src: url( https";
+            font_face_css += font_url_split[1];
             font_face_css += ");} "
-            //(font_face_css);
             css += font_face_css;
         }
     }
