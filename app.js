@@ -176,11 +176,11 @@ request.onload = function () {
     $('<style>').append(css).appendTo(document.head);
     //Append Font Cards to Body HTML with styling
     for (x = 0; x < 11; x++) {
-        let font_card = '<div class="card border-0" title="'
+        let font_card = '<div class="card border-0 p-2" title="'
         font_card += font_families[x].family;
-        font_card += '"><div class="card-body border-top"><h5 class="card-title">';
+        font_card += '"><div class="card-body border-top border-dark"><h5 class="card-title">';
         font_card += font_families[x].family;
-        font_card += '</h5><button class="add-font-button" id="add-';
+        font_card += '</h5><button class="add-font-button rounded-circle" id="add-';
         font_card += font_families[x].family;
         font_card += '"><i class="fas fa-plus"></i></button>';
         font_card += '<p class="card-text" style="font-family: '
