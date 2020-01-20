@@ -1,0 +1,148 @@
+/* Header Styles */
+
+.title {
+    font-size: 34px;
+    font-family: 'Roboto';
+    color: #808080;
+    font-weight: 400;
+
+}
+
+.google {
+    font-weight: 500;
+}
+
+.main-nav {
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.main-nav a {
+    color: #808080;
+}
+
+ /*Removing Default Button Styles */
+
+ button {
+    display: inline-block;
+    border: none;
+    padding: 0.5rem;
+    margin: 0;
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -moz-appearance: none;
+}
+
+/* Font Menu Styling */
+input {
+    display: inline-block;
+    border: none;
+    padding: 0.5rem;
+    margin: 0;
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    -moz-appearance: none;
+}
+
+input[type=text]:focus {
+    outline: none;
+  }
+
+  select {
+    display: inline-block;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+    margin: 0.5rem;
+    width: 75%;
+  }
+
+  select:focus {
+      outline: none;
+  }
+
+  #dark-mode, #light-mode {
+      padding: 0px 5px;
+      margin: 0.5rem;
+  }
+/* Card Styles */
+
+.card-title {
+    display: inline-block;
+}
+
+.card-text {
+    font-size: 40px;
+}
+
+.add-font-button {
+    float: right;
+}
+
+/* Back to Top Button */
+
+#top-button {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    outline: none; /* Remove outline */
+    background-color:#fff; /* Set a background color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    font-size: 18px; /* Increase font size */
+    padding: 1px 7px 2px 7px;
+    color: #808080;
+  }
+  
+  #top-button i {
+      font-size: 50px;
+  }
+
+  #top-button:hover {
+    background-color: #ff5252;
+    color: white;
+  }
+
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Sticky Footer Styles */
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+  }
+
+
+/* Add font button styles */
+
+.add-font-button {
+    background-color: #ff5252;
+    padding: 1px 7px 2px 7px;
+    color: white;
+}

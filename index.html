@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Google Fonts</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid border-bottom">
+            <div class="m-4 row">
+                <div class="col-sm">
+                    <h1 class="title"><span class='google'>Google</span> Fonts</h1>
+                </div>
+                <div class="col-sm">
+                    <ul class="main-nav nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Featured</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-sm">
+                <ul class="nav justify-content-center nav-fill border rounded-pill">
+                    <li class="nav-item border-right">
+                        <input id="search" name="search" placeholder="Search fonts" type="text" data-list=".list">
+                    </li>
+                    <li class="nav-item border-right">
+                        <input id="type_something" name="search" placeholder="Type Something" type="text">
+                    </li>
+                    <li class="nav-item">
+                        <select id="font-size">
+                            <option value="8px">8px</option>
+                            <option value="12px">12px</option>
+                            <option value="14px">14px</option>
+                            <option value="20px">20px</option>
+                            <option value="24px">24px</option>
+                            <option value="32px">32px</option>
+                            <option value="40px" selected="selected">40px</option>
+                            <option value="64px">64px</option>
+                            <option value="96px">96px</option>
+                        </select>
+                    </li>
+                    <li class="nav-item">
+                        <button class="rounded-circle" id="dark-mode"><i class="fas fa-circle"></i></button>
+                        <button class="rounded-circle" id="light-mode"><i class="far fa-circle"></i></button>
+                    </li>
+                    <li class="nav-item" id="list-view-buttons">
+                        <button id="list-button"><i id="list-button-icon" class="fas fa-list"></i></button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="reset-button"><i class="fas fa-redo"></i></button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="container align-items-center mt-4">
+        <div id="card-list" class="row row-cols-1 row-cols-lg-3 mx-auto font-card-container list">
+                <!-- <div class="card border-0" title="Roboto">
+                    <div class="card-body border-bottom">
+                        <h5 class="card-title">Roboto</h5>
+                        <p class="card-text" style="font-family: Roboto">The quick brown fox jumps over the lazy dog.
+                        </p>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Roboto</h5>
+                        <p class="card-text" style="font-family: Roboto">The quick brown fox jumps over the lazy dog.
+                        </p>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Roboto</h5>
+                        <p class="card-text" style="font-family: Roboto">The quick brown fox jumps over the lazy dog.
+                        </p>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Roboto</h5>
+                        <p class="card-text" style="font-family: Roboto">The quick brown fox jumps over the lazy dog.
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+    </div>
+
+    </div>
+    <button class="border rounded-circle" onclick="topFunction()" id="top-button" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <footer class="m-2 border-top">
+        <div class="row">
+            <div class="col-sm">
+                <div class="container mx-auto text-center m-2">Coded by Kristen Vinh | 2020 | Chingu Pre-Work Project
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/vdw/HideSeek/master/jquery.hideseek.min.js"></script>
+    <script src="https://kit.fontawesome.com/1e2bbcbba0.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
