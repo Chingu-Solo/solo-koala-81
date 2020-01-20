@@ -91,7 +91,10 @@ $('#reset-button').click(function(){
     if (button == "grid") {
         button = "list";
         $('#card-list').addClass("row-cols-lg-3");
-        $('#list-button').html('<i class="fas fa-list"></i>')
+        $('#list-button').html('<i class="fas fa-list"></i>');
+    //Reset Font search
+    event.preventDefault();
+    $('#search').val('').trigger('keyup');
     }
 })
 // Load in the Google Fonts
